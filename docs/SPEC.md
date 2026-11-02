@@ -558,9 +558,9 @@ Phase 1 alone is a working budget app on your phone; each later phase adds the f
 
 ### Phase 0: Setup
 
-- [ ] Create the repo with the structure above, `CLAUDE.md`, `.env.example`, Docker Compose
-- [ ] Copy `design/mockups/` and `design/png/` into the repo
-- [ ] Backend skeleton: FastAPI app, config, DB connection, Alembic, health check, pytest running
+- [x] Create the repo with the structure above, `CLAUDE.md`, `.env.example`, Docker Compose
+- [x] Copy `design/mockups/` and `design/png/` into the repo
+- [x] Backend skeleton: FastAPI app, config, DB connection, Alembic, health check, pytest running
 - [ ] Frontend skeleton: Vite + React + TS, Tailwind with `tokens.css`, fonts, router, tab bar shell
 - [ ] Lint and format: ruff + mypy (backend), ESLint + Prettier (frontend)
 
