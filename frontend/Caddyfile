@@ -1,0 +1,19 @@
+{$APP_DOMAIN} {
+	encode zstd gzip
+
+	# API and its OpenAPI docs go to the FastAPI service.
+	handle /api/* {
+		reverse_proxy api:8000
+	}
+
+	# Everything else is the built PWA, with SPA fallback to index.html.
+	handle {
+		root * /srv
+		try_files {path} /index.html
+		file_server
+
+		# The service worker and manifest must never be cached stale.
+		@nocache path /sw.js /manifest.webmanifest /index.html
+		header @nocache Cache-Control "no-cache"
+	}
+}
