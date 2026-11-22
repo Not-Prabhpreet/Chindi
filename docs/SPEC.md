@@ -4,6 +4,77 @@ Nov 2, 2026 · @Prabh
 
 ## Overview
 
+**User-directed transaction date correction (Nov 2, 2026):** Show Transaction date
+in the main entry form, defaulted to today in the budget timezone. Allow adding
+missed expenses and editing an existing date; keep optional time under the extras.
+Use the chosen date for History, monthly bucket usage, daily averages and streaks,
+including queued offline entries. A previous-month entry must not reduce this
+month's bucket total or enter this month's daily average. Preserve the exact
+timestamp when unrelated fields are edited, and reject nonexistent local clock
+times rather than shifting the chosen day silently.
+
+**User-directed transaction rating correction (Nov 2, 2026):** History shows an
+explicit, colored purchase-rating badge for Love / Good / Meh / Regret. Expenses
+without a saved feeling show Not rated with an Add rating shortcut; never infer a
+rating. Tapping a rating opens a small picker to add, change or clear it without
+editing the amount. Show weekly review verdicts separately and preserve them when
+the purchase rating changes. Display saved feelings on queued offline entries too.
+
+**User-directed monthly bucket correction (Nov 2, 2026):** Home leads with the
+combined amount left in monthly buckets, with assigned and spent totals. Include
+active monetary limits for flexible categories and fixed bills. A child's monetary
+limit sits within a parent's monetary limit; a child with an unlimited/count-only
+parent contributes its own amount. Count each expense once. Show spending outside
+these monetary buckets separately. Preserve negative remaining amounts when over
+budget. Monthly limits recur automatically on the 1st in the user's timezone,
+without carrying unused amounts forward or creating income/transfers. Preserve
+all receipts and account balances. Refresh open apps across the date boundary and
+apply the same month rules to cached budgets and queued offline expenses. This
+replaces the pace-based Home headline below; kept remains a separate pace metric.
+Keep the daily average and streak cards. Label the average with the current month
+and use only that month's flexible spending divided by elapsed calendar days.
+Reset monthly usage and the average on the local 1st, including cached/offline
+views; streaks continue across months. The local launcher must serve the built PWA
+and a valid update worker so installed clients can receive the current Home screen.
+
+**User-directed deletion correction (Nov 2, 2026):** Make wishlist items easy to
+remove with a visible, one-tap Delete action, both during the timer and when ready
+to decide. Deleting an undecided wish is not a let-go decision and must not award
+points, increase money-not-wasted, or alter balances, spending or goal allocations.
+
+**User-directed expense-entry correction (Nov 2, 2026):** A fresh entry starts
+with an empty merchant field. Recent merchants are tap-to-select suggestions,
+never an automatic default. Preserve the merchant when editing an entry or opening
+an explicit purchase/wishlist draft, including an intentionally empty merchant.
+
+**User-directed account management correction (Nov 2, 2026):** Show the account
+type alongside its name on account cards, Home, History cards/filters (including
+offline entries and both sides of transfers), and all Quick Add account choices
+(Paid with, Paid into, transfer destinations and archived history edits). Keep the
+type visible on selected options so matching account names can be distinguished.
+Offer confirmed permanent
+deletion only for accounts without transactions (including incoming transfers) or
+linked goals. Preserve accounts with activity through Archive, and show archived
+accounts with a Restore action. Prevent archive/delete while local entries await
+sync. This permits deletion of unused accounts as an exception to the soft-delete
+rule below; transaction history and other accounts must remain intact.
+
+**User-directed sign-in correction (Nov 2, 2026):** Keep Create account and Forgot
+password visible on the login screen. Enable additional registrations for this
+local installation. Support persistent mobile sessions, verified WebAuthn passkeys
+with required device verification, and single-use saved recovery codes. Email
+recovery can be configured later. Password reset must revoke existing access and
+refresh sessions while preserving all budget data. A saved session is not an
+additional biometric lock on every app open.
+
+**User-directed flow correction (Nov 2, 2026):** Categories and limits must be
+created by the user. Do not seed starter categories or infer limits from personality.
+Onboarding can collect custom categories or be skipped. Quick Add must offer inline
+category creation and an Uncategorized option; uncategorized expenses still count
+as spending and can be assigned later in History. Show spending, without a budget-pace
+claim, until the user sets flexible category limits. Preserve existing records when
+updating older installations. This replaces the category/budget-default behavior below.
+
 Chindi is a manual-entry budgeting PWA that roasts you (lovingly) into not wasting money. It is built for one person first, open source, and designed so friends can self-host or join later.
 
 **Who it's for:** Gen Z, phone-first, short attention span, spends on impulse (late-night carts, takeout, "I deserve this" buys). No bank linking: every expense is typed by hand, on purpose, because typing it makes you think about it.
