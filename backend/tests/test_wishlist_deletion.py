@@ -57,7 +57,11 @@ def test_delete_waiting_or_ready_wish_preserves_budget_and_does_not_count_as_sav
     )
     assert all(w["id"] != item["id"] for w in get(client, "/export", headers)["tables"]["wishlist"])
     if ready:
-        assert after["review_ready"] is False
+        # The deleted wish must leave the weekly review. Don't assert on review_ready itself:
+        # on Sundays the review covers the current week, so the transaction above makes it true.
+        review = get(client, "/reviews/current", headers)
+        assert all(w["id"] != item["id"] for w in review["wishlist"])
+        assert after["review_ready"] is bool(review["transactions"])
 
 
 @pytest.mark.parametrize("decision", ["buy", "let_go"])
