@@ -215,3 +215,25 @@ is usable; treat the later habit features as a first implementation to try with 
 data rather than a production acceptance sign-off.
 
 MIT licensed. Font files retain their upstream Bricolage Grotesque and DM Sans licenses.
+
+## Deploy to Render
+
+The whole app runs on Render from [`render.yaml`](render.yaml):
+
+| Service      | Type             | What it does                                                    |
+| ------------ | ---------------- | --------------------------------------------------------------- |
+| `chindi`     | Static site      | Serves the built PWA and proxies `/api/*` to `chindi-api`       |
+| `chindi-api` | Docker web       | FastAPI; runs `alembic upgrade head` on every start             |
+| `chindi-db`  | Postgres         | Managed database; `DATABASE_URL` is wired in automatically      |
+
+Because the static site proxies `/api/*`, the browser only ever talks to one origin, so the
+refresh cookie, passkeys and CORS work without extra setup.
+
+1. In Render, choose **New → Blueprint** and pick this repository.
+2. Render creates all three resources and generates `JWT_SECRET`.
+3. If Render gives the services different URLs than `chindi.onrender.com` and
+   `chindi-api.onrender.com`, update `APP_URL`, `CORS_ORIGINS` and the `/api/*` rewrite in
+   `render.yaml` to match.
+
+The first account can always register; set `ALLOW_SIGNUPS=true` on `chindi-api` to let others join.
+Free instances sleep after 15 minutes idle, and free Postgres databases expire after 30 days.
