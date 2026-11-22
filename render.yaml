@@ -19,9 +19,9 @@ services:
       - key: JWT_SECRET
         generateValue: true
       - key: APP_URL
-        value: https://chindi.onrender.com
+        value: https://chindi-jst7.onrender.com
       - key: CORS_ORIGINS
-        value: '["https://chindi.onrender.com"]'
+        value: '["https://chindi-jst7.onrender.com"]'
       - key: ALLOW_SIGNUPS
         value: "false"
       - key: DEFAULT_CURRENCY

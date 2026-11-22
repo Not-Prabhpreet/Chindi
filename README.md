@@ -231,7 +231,7 @@ refresh cookie, passkeys and CORS work without extra setup.
 
 1. In Render, choose **New → Blueprint** and pick this repository.
 2. Render creates all three resources and generates `JWT_SECRET`.
-3. If Render gives the services different URLs than `chindi.onrender.com` and
+3. If Render gives the services different URLs than `chindi-jst7.onrender.com` (the static site's assigned URL) and
    `chindi-api.onrender.com`, update `APP_URL`, `CORS_ORIGINS` and the `/api/*` rewrite in
    `render.yaml` to match.
 
