@@ -1,0 +1,68 @@
+@import "tailwindcss";
+@font-face {
+  font-family: "Bricolage Grotesque";
+  font-weight: 600;
+  src: url("/fonts/bricolage-grotesque-latin-600-normal.woff2") format("woff2");
+  font-display: swap;
+}
+@font-face {
+  font-family: "Bricolage Grotesque";
+  font-weight: 700;
+  src: url("/fonts/bricolage-grotesque-latin-700-normal.woff2") format("woff2");
+  font-display: swap;
+}
+@font-face {
+  font-family: "Bricolage Grotesque";
+  font-weight: 800;
+  src: url("/fonts/bricolage-grotesque-latin-800-normal.woff2") format("woff2");
+  font-display: swap;
+}
+@font-face {
+  font-family: "DM Sans";
+  font-weight: 400;
+  src: url("/fonts/dm-sans-latin-400-normal.woff2") format("woff2");
+  font-display: swap;
+}
+@font-face {
+  font-family: "DM Sans";
+  font-weight: 500;
+  src: url("/fonts/dm-sans-latin-500-normal.woff2") format("woff2");
+  font-display: swap;
+}
+@font-face {
+  font-family: "DM Sans";
+  font-weight: 600;
+  src: url("/fonts/dm-sans-latin-600-normal.woff2") format("woff2");
+  font-display: swap;
+}
+@font-face {
+  font-family: "DM Sans";
+  font-weight: 700;
+  src: url("/fonts/dm-sans-latin-700-normal.woff2") format("woff2");
+  font-display: swap;
+}
+:root {
+  --ink: #17141f;
+  --ink-soft: #4a4553;
+  --paper: #fffbf3;
+  --card: #ffffff;
+  --line: #ede6d8;
+  --track: #f1ebdf;
+  --mango: #ffc93c;
+  --mango-soft: #ffe3a3;
+  --bubblegum: #ff8fb1;
+  --bubblegum-soft: #ffd1de;
+  --sky-soft: #cde3ff;
+  --mint-soft: #d8f1f0;
+  --tomato: #f2542d;
+  --tomato-text: #c2381a;
+  --tomato-soft: #ffb3a1;
+  --tomato-wash: #fff1ec;
+  --radius-hero: 20px;
+  --radius-card: 16px;
+  --radius-chip: 12px;
+  --shadow-card: 3px 3px 0 var(--ink);
+  --shadow-hero: 4px 4px 0 var(--ink);
+  --font-display: "Bricolage Grotesque", system-ui, sans-serif;
+  --font-body: "DM Sans", system-ui, sans-serif;
+}
